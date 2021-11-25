@@ -10,19 +10,19 @@ const main = async () => {
 
   // make a nft
   // Call the function.
-  let txn = await nftContract.makeNFT({value: ethers.utils.parseEther("0.015")})
+  let txn = await nftContract.makeNFT({value: ethers.utils.parseEther("20")})
   // Wait for it to be mined.
   await txn.wait()
   console.log("Minted NFT #1")
 
   // make a nft
-  txn = await nftContract.makeNFT({value: ethers.utils.parseEther("0.015")})
+  txn = await nftContract.makeNFT({value: ethers.utils.parseEther("20")})
   // Wait for it to be mined.
   await txn.wait()
   console.log("Minted NFT #2")
 
   // make reserveNFT 
-  txn = await nftContract.reserveNFT()
+  txn = await nftContract.reserveNFT(150)
   // Wait for it to be mined.
   await txn.wait()
   console.log("Minted reserve NFT")

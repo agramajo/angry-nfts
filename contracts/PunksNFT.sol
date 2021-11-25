@@ -11,13 +11,13 @@ contract PunksNFT is ERC721URIStorage, Ownable {
   Counters.Counter private _tokenIds;
 
   uint256 public MAX_TOKENS = 4000;
-  uint256 public CURRENT_PRICE = 15000000000000000; // 0.015 eth
-  string public BASE_URI = "https://aicryptopunks.baicom.com/api/";
+  uint256 public CURRENT_PRICE = 20 ether;
+  string public BASE_URI = "https://punkportraits.com/matic/";
   address public constant DEV = 0x99872620911cBC41B66bc5D4123e21F09ABc0C44;
 
   event NewNFTMinted(address sender, uint256 tokenId);
 
-  constructor() ERC721 ("AiCryptoPunks5", "PUNKS5") {
+  constructor() ERC721 ("PunkPortraits", "PUNKP") {
   }
 
   function makeNFT() public payable {
@@ -32,8 +32,8 @@ contract PunksNFT is ERC721URIStorage, Ownable {
     emit NewNFTMinted(msg.sender, newItemId);
   }
 
-  function reserveNFT() public onlyOwner {
-    for (uint i = 1; i <= 50; i++) {
+  function reserveNFT(uint count) public onlyOwner {
+    for (uint i = 1; i <= count; i++) {
       uint256 newItemId = _tokenIds.current();
 
       require(newItemId < MAX_TOKENS,"Max supply of NFT");

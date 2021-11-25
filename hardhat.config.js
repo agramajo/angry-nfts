@@ -36,6 +36,16 @@ module.exports = {
       url: process.env.PROD_ALCHEMY_KEY,
       accounts: [process.env.PRIVATE_KEY],
     },
+    mumbai: {
+      chainId: 80001,
+      url: `https://rpc-mumbai.maticvigil.com/`,
+      accounts: [process.env.PRIVATE_KEY],
+    },
+    matic: {
+      chainId: 137,
+      url: `https://rpc-mainnet.maticvigil.com/`,
+      accounts: [process.env.PRIVATE_KEY],
+    },
   },
   etherscan: {
     apiKey: process.env.ETHERSCAN_KEY
